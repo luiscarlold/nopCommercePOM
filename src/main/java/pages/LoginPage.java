@@ -16,8 +16,6 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath = "/html/body/div[3]/div[2]/div/ul/li[4]/a")
 	WebElement btnCostumer;
 
-	WebDriver driver;
-
 	public LoginPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);

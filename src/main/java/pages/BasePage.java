@@ -10,29 +10,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 	WebDriver driver;
+	WebDriverWait wait;
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	public void typeOnElement(WebElement element, String text) {
+		element.clear();
 		element.sendKeys(text);
 	}
 
 	public void clickOnElement(WebElement element) {
-		element.click();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(element)).click();
 	}
 
-	public void clearOnElement(WebElement element) {
-		element.clear();
-	}
-
-	// Explicit wait
-	public void waitUntilClickable(WebElement element, int seconds) {
-
-		(new WebDriverWait(driver, seconds)).until(ExpectedConditions.elementToBeClickable(element)).click();
-
-	}
+//	// Explicit wait
+//	public void waitUntilClickable(WebElement element, int seconds) {
+//
+//		(new WebDriverWait(driver, seconds)).until(ExpectedConditions.elementToBeClickable(element)).click();
+//
+//	}
 
 	// Select dropdown
 	public void selectDropdown(WebElement locator, int value) {

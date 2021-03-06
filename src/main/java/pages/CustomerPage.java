@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CostumerPage extends BasePage {
+public class CustomerPage extends BasePage {
 
 	@FindBy(xpath = "/html/body/div[3]/div[2]/div/ul/li[4]/a")
 	WebElement btnSideBarCostumer;
@@ -28,13 +28,13 @@ public class CostumerPage extends BasePage {
 	@FindBy(id = "LastName")
 	WebElement lastName;
 
-	@FindBy(xpath = "//*[@id=\"Gender_Male\"]")
+	@FindBy(id = "Gender_Male")
 	WebElement gender;
 
 	@FindBy(xpath = "//*[@id=\"customer-info\"]/div[2]/div[1]/div[6]/div[2]/span[1]/span/span")
 	WebElement dateOfBirth1;
 
-	@FindBy(xpath = "/html/body/div[4]/div/div/div[2]/table/tbody/tr[3]/td[7]/a")
+	@FindBy(xpath = "/html/body/div[4]/div/div/div[2]/table/tbody/tr[3]/td[7]/a") // xpath relativos
 	WebElement dateOfBirth;
 
 	@FindBy(id = "Company")
@@ -72,34 +72,54 @@ public class CostumerPage extends BasePage {
 
 	WebDriver driver;
 
-	public CostumerPage(WebDriver driver) {
+	public CustomerPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}
 
-	public void AddCostumers(String[] data) {
-		waitUntilClickable(btnSideBarCostumer, 10);
-		waitUntilClickable(btnCostumer, 10);
-		waitUntilClickable(btnAddCostumer, 10);
-		waitUntilClickable(costumerInfo, 10);
-		waitUntilClickable(formEmail, 10);
+	public void addCustomers(String[] data) {
+		clickOnElement(btnSideBarCostumer);
+		clickOnElement(btnCostumer);
+		clickOnElement(btnAddCostumer);
+		clickOnElement(costumerInfo);
+		clickOnElement(formEmail);
 		typeOnElement(formEmail, data[0]);
 		typeOnElement(password, data[1]);
 		typeOnElement(firstName, data[2]);
 		typeOnElement(lastName, data[3]);
-		waitUntilClickable(gender, 10);
-		waitUntilClickable(dateOfBirth1, 10);
-		waitUntilClickable(dateOfBirth, 10);
+		clickOnElement(gender);
+		clickOnElement(dateOfBirth1);
+		clickOnElement(dateOfBirth);
 		typeOnElement(companyName, data[4]);
-		waitUntilClickable(taxExemp, 10);
-		waitUntilClickable(newsletter, 10);
-		waitUntilClickable(newsletter1, 10);
-		typeOnElement(textArea, data[5]);
+		clickOnElement(taxExemp);
+		clickOnElement(newsletter);
+		clickOnElement(newsletter1);
 		selectDropdown(vendor, 1);
-		waitUntilClickable(btnAdd, 10);
-		waitUntilClickable(btnEdit, 10);
+		typeOnElement(textArea, data[5]);
+		clickOnElement(btnAdd);
+		clickOnElement(btnEdit);
 	}
 
+	public void updateCustomers(String[] data) {
+		clickOnElement(btnSideBarCostumer);
+		clickOnElement(btnCostumer);
+		clickOnElement(btnEdit);
+		typeOnElement(formEmail, data[0]);
+		typeOnElement(password, data[1]);
+		typeOnElement(firstName, data[2]);
+		typeOnElement(lastName, data[3]);
+		clickOnElement(gender);
+		clickOnElement(dateOfBirth1);
+		clickOnElement(dateOfBirth);
+		typeOnElement(companyName, data[4]);
+		clickOnElement(taxExemp);
+		clickOnElement(newsletter);
+		clickOnElement(newsletter1);
+		selectDropdown(vendor, 2);
+		typeOnElement(textArea, data[5]);
+		clickOnElement(btnAdd);
+	}
+	
 	public boolean isCustomerPageDisplayed() {
 		return isDisplayed(AssertText);
 	}
