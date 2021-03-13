@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16811" started-at="2021-03-05T20:49:33 CST" finished-at="2021-03-05T20:49:49 CST">
+  <suite name="Default suite" duration-ms="43983" started-at="2021-03-12T22:19:53 CST" finished-at="2021-03-12T22:20:37 CST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16811" started-at="2021-03-05T20:49:33 CST" finished-at="2021-03-05T20:49:49 CST">
+    <test name="Default test" duration-ms="43983" started-at="2021-03-12T22:19:53 CST" finished-at="2021-03-12T22:20:37 CST">
       <class name="tests.Tests_Customer">
-        <test-method status="PASS" signature="setup()[pri:0, instance:tests.Tests_Customer@53f65459]" name="setup" is-config="true" duration-ms="3759" started-at="2021-03-05T20:49:33 CST" finished-at="2021-03-05T20:49:36 CST">
+        <test-method status="PASS" signature="setup()[pri:0, instance:tests.Tests_Customer@1e965684]" name="setup" is-config="true" duration-ms="3615" started-at="2021-03-12T22:19:53 CST" finished-at="2021-03-12T22:19:57 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="updateCustomers()[pri:1, instance:tests.Tests_Customer@53f65459]" name="updateCustomers" duration-ms="13025" started-at="2021-03-05T20:49:36 CST" finished-at="2021-03-05T20:49:49 CST">
+        <test-method status="PASS" signature="addCustomerTest()[pri:0, instance:tests.Tests_Customer@1e965684]" name="addCustomerTest" duration-ms="12226" started-at="2021-03-12T22:19:57 CST" finished-at="2021-03-12T22:20:09 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addCustomerTest -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.Tests_Customer@1e965684]" name="teardown" is-config="true" duration-ms="0" started-at="2021-03-12T22:20:09 CST" finished-at="2021-03-12T22:20:09 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:tests.Tests_Customer@1e965684]" name="setup" is-config="true" duration-ms="2722" started-at="2021-03-12T22:20:09 CST" finished-at="2021-03-12T22:20:12 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="updateCustomers()[pri:1, instance:tests.Tests_Customer@1e965684]" name="updateCustomers" duration-ms="12878" started-at="2021-03-12T22:20:12 CST" finished-at="2021-03-12T22:20:24 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateCustomers -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.Tests_Customer@53f65459]" name="teardown" is-config="true" duration-ms="0" started-at="2021-03-05T20:49:49 CST" finished-at="2021-03-05T20:49:49 CST">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.Tests_Customer@1e965684]" name="teardown" is-config="true" duration-ms="0" started-at="2021-03-12T22:20:24 CST" finished-at="2021-03-12T22:20:24 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:tests.Tests_Customer@1e965684]" name="setup" is-config="true" duration-ms="2756" started-at="2021-03-12T22:20:24 CST" finished-at="2021-03-12T22:20:27 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="deleteCustomer()[pri:2, instance:tests.Tests_Customer@1e965684]" name="deleteCustomer" duration-ms="9753" started-at="2021-03-12T22:20:27 CST" finished-at="2021-03-12T22:20:37 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteCustomer -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.Tests_Customer@1e965684]" name="teardown" is-config="true" duration-ms="1" started-at="2021-03-12T22:20:37 CST" finished-at="2021-03-12T22:20:37 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

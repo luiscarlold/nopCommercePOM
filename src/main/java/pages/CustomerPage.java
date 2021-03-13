@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CustomerPage extends BasePage {
 
-	@FindBy(xpath = "/html/body/div[3]/div[2]/div/ul/li[4]/a")
+	@FindBy(xpath = "/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[4]/a/p")
 	WebElement btnSideBarCostumer;
 
-	@FindBy(xpath = "/html/body/div[3]/div[2]/div/ul/li[4]/ul/li[1]/a/span")
+	@FindBy(xpath = "/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[4]/ul/li[1]/a/p")
 	WebElement btnCostumer;
 
-	@FindBy(xpath = "/html/body/div[3]/div[3]/div/form[1]/div[1]/div/a")
+	@FindBy(xpath = "/html/body/div[3]/div[1]/form[1]/div/div/a")
 	WebElement btnAddCostumer;
 
 	@FindBy(id = "Email")
@@ -31,19 +31,19 @@ public class CustomerPage extends BasePage {
 	@FindBy(id = "Gender_Male")
 	WebElement gender;
 
-	@FindBy(xpath = "//*[@id=\"customer-info\"]/div[2]/div[1]/div[6]/div[2]/span[1]/span/span")
+	@FindBy(xpath = "//*[@id=\"customer-info\"]/div[2]/div[6]/div[2]/span[1]/span/span")
 	WebElement dateOfBirth1;
 
-	@FindBy(xpath = "/html/body/div[4]/div/div/div[2]/table/tbody/tr[3]/td[7]/a") // xpath relativos
+	@FindBy(xpath = "/html/body/div[4]/div/div/div[2]/table/tbody/tr[2]/td[7]/a")
 	WebElement dateOfBirth;
 
 	@FindBy(id = "Company")
 	WebElement companyName;
 
-	@FindBy(xpath = "//*[@id=\"IsTaxExempt\"]")
+	@FindBy(id = "IsTaxExempt")
 	WebElement taxExemp;
 
-	@FindBy(xpath = "//*[@id=\"customer-info\"]/div[2]/div[1]/div[9]/div[2]/div/div[1]/div")
+	@FindBy(xpath = "//*[@id=\"customer-info\"]/div[2]/div[9]/div[2]/div/div[1]/div/div")
 	WebElement newsletter;
 
 	@FindBy(xpath = "//*[@id=\"SelectedNewsletterSubscriptionStoreIds_listbox\"]/li[1]")
@@ -64,11 +64,17 @@ public class CustomerPage extends BasePage {
 	@FindBy(id = "customer-info")
 	WebElement costumerInfo;
 
-	@FindBy(xpath = "/html/body/div[3]/div[3]/div/form/div[1]/div/button[1]")
+	@FindBy(xpath = "/html/body/div[3]/div[1]/form/div[1]/div/button[1]")
 	WebElement btnAdd;
 
-	@FindBy(xpath = "//*[@id=\"customers-grid\"]/tbody/tr[1]/td[9]/a")
+	@FindBy(xpath = "//*[@id=\"customers-grid\"]/tbody/tr[1]/td[7]/a")
 	WebElement btnEdit;
+
+	@FindBy(id = "customer-delete")
+	WebElement btnDelete;
+
+	@FindBy(xpath = "//*[@id=\"customermodel-Delete-delete-confirmation\"]/div/div/form/div/div[2]/button")
+	WebElement btnConfirmDelete;
 
 	WebDriver driver;
 
@@ -97,7 +103,6 @@ public class CustomerPage extends BasePage {
 		selectDropdown(vendor, 1);
 		typeOnElement(textArea, data[5]);
 		clickOnElement(btnAdd);
-		clickOnElement(btnEdit);
 	}
 
 	public void updateCustomers(String[] data) {
@@ -119,7 +124,15 @@ public class CustomerPage extends BasePage {
 		typeOnElement(textArea, data[5]);
 		clickOnElement(btnAdd);
 	}
-	
+
+	public void deleteCustomers() {
+		clickOnElement(btnSideBarCostumer);
+		clickOnElement(btnCostumer);
+		clickOnElement(btnEdit);
+		clickOnElement(btnDelete);
+		clickOnElement(btnConfirmDelete);
+	}
+
 	public boolean isCustomerPageDisplayed() {
 		return isDisplayed(AssertText);
 	}

@@ -1,21 +1,16 @@
 package tests;
 
-import static org.testng.Assert.assertTrue;
-
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.CustomerPage;
+import pages.HomePage;
 import pages.LoginPage;
 
 public class Tests_Customer extends BaseTest {
 	@Test(priority = 0)
-	public void customerTest() throws InterruptedException {
-//		String url = "https://admin-demo.nopcommerce.com/login";
-//		WebDriver driver = new ChromeDriver();
-//		driver.manage().window().maximize();
-//		driver.get(url);
-
-		String email1 = "tarea2@test.com";
+	public void addCustomerTest() throws InterruptedException {
+		String email1 = "entregafinal@test.com";
 		String password = "123";
 		String firstName = "Homework";
 		String lastName = "Number two";
@@ -25,17 +20,17 @@ public class Tests_Customer extends BaseTest {
 		String[] datos = { email1, password, firstName, lastName, companyName, textArea };
 
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.doLogin();
+		HomePage homePage = loginPage.doLogin();
+		Assert.assertTrue(homePage.isDisplayed());
 
 		CustomerPage customerPage = new CustomerPage(driver);
 		customerPage.addCustomers(datos);
 
-		assertTrue(customerPage.isCustomerPageDisplayed());
 	}
 
 	@Test(priority = 1)
 	public void updateCustomers() {
-		String email1 = "tarea2update@test.com";
+		String email1 = "entregafinalUPDATE@test.com";
 		String password = "123";
 		String firstName = "Homework";
 		String lastName = "Update";
@@ -45,12 +40,21 @@ public class Tests_Customer extends BaseTest {
 		String[] datos = { email1, password, firstName, lastName, companyName, textArea };
 
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.doLogin();
+		HomePage homePage = loginPage.doLogin();
+		Assert.assertTrue(homePage.isDisplayed());
 
 		CustomerPage customerPage = new CustomerPage(driver);
 		customerPage.updateCustomers(datos);
 
-		assertTrue(customerPage.isCustomerPageDisplayed());
 	}
 
+	@Test(priority = 2)
+	public void deleteCustomer() {
+		LoginPage loginPage = new LoginPage(driver);
+		HomePage homePage = loginPage.doLogin();
+		Assert.assertTrue(homePage.isDisplayed());
+
+		CustomerPage customerPage = new CustomerPage(driver);
+		customerPage.deleteCustomers();
+	}
 }

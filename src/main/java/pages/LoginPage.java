@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
-	@FindBy(xpath = "/html/body/div[6]/div/div/div/div/div[2]/div[1]/div/form/div[3]/input")
+	@FindBy(xpath = "/html/body/div[6]/div/div/div/div/div[2]/div[1]/div/form/div[3]/button")
 	WebElement btnLogin;
 
 	@FindBy(xpath = "/html/body/div[3]/div[2]/div/ul/li[4]/a/span")
@@ -21,8 +21,9 @@ public class LoginPage extends BasePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void doLogin() {
+	public HomePage doLogin() {
 		clickOnElement(btnLogin);
+		return new HomePage(driver);
 	}
 
 }
