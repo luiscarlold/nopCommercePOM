@@ -5,7 +5,7 @@
     <classes>
       <class name="tests.Tests_Customer">
         <methods>
-          <include name="addCustomerTest"/>
+          <include name="deleteCustomer"/>
           <include name="teardown"/>
           <include name="setup"/>
         </methods>

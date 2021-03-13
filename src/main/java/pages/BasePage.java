@@ -7,10 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BasePage {
 	protected WebDriver driver;
 	private WebDriverWait wait;
+
+	private static final Logger logger = LogManager.getLogger();
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
@@ -18,17 +22,35 @@ public class BasePage {
 	}
 
 	public void typeOnElement(WebElement element, String text) {
-		element.clear();
-		element.sendKeys(text);
+		try {
+			element.clear();
+			wait.until(ExpectedConditions.elementToBeClickable(element)).sendKeys(text);
+			logger.info("Type on element: " + element + " , text: " + text);
+		} catch (Exception e) {
+			logger.error("Unable type on element: " + e);
+		}
+
 	}
 
 	public void clickOnElement(WebElement element) {
-		wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(element));
+			element.click();
+			logger.info("Clicked on element: " + element);
+		} catch (Exception e) {
+			logger.error("Unable to click on element: " + e);
+		}
 	}
 
 	public void selectDropdown(WebElement locator, int value) {
-		Select se = new Select(locator);
-		se.selectByIndex(value);
+		try {
+			Select se = new Select(locator);
+			se.selectByIndex(value);
+			logger.info("Select on element: " + locator);
+		} catch (Exception e) {
+			logger.error("Unable to select on element: " + e);
+		}
+
 	}
 
 	public void switchTab() {
